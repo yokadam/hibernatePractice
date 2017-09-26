@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <!-- no table needed in nelow class attribute for parent class-->
+    <class name="org.examples.IS_A_REALTIONSHIP.model.CompanyEmployee">
+        <id name="id" >
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="name"></property>
+        <property name="email"></property>
+        <property name="salary"></property>
+
+        <!-- sub classses-->
+
+        <union-subclass name="org.examples.IS_A_REALTIONSHIP.model.SoftwareCompanyEmployee" table="sofware_emp">
+            <property name="tools"/>
+        </union-subclass>
+
+        <union-subclass name="org.examples.IS_A_REALTIONSHIP.model.HardwareCompanyEmployee" table="hardware_emp">
+            <property name="workingHours"/>
+        </union-subclass>
+
+        <union-subclass name="org.examples.IS_A_REALTIONSHIP.model.Admin" table="admin_emp">
+            <property name="department"/>
+        </union-subclass>
+
+
+
+    </class>
+
+</hibernate-mapping>

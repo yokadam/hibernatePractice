@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="org.examples.IS_A_REALTIONSHIP.model.CompanyEmployee" table="employee">
+        <id name="id" >
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="name"></property>
+        <property name="email"></property>
+        <property name="salary"></property>
+
+        <joined-subclass name="org.examples.IS_A_REALTIONSHIP.model.SoftwareCompanyEmployee" table="sofware_emp">
+            <key column="id"></key>
+            <property name="tools"></property>
+        </joined-subclass>
+
+        <joined-subclass name="org.examples.IS_A_REALTIONSHIP.model.HardwareCompanyEmployee" table="hardware_emp">
+            <key column="id"></key>
+            <property name="workingHours"></property>
+        </joined-subclass>
+
+        <joined-subclass name="org.examples.IS_A_REALTIONSHIP.model.Admin" table="admin_emp">
+            <key column="id"></key>
+            <property name="department"></property>
+        </joined-subclass>
+
+    </class>
+
+</hibernate-mapping>

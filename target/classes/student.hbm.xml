@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="org.examples.model.Student" table="student">
+        <id name="id" column="s_id">
+            <generator class="hilo">
+                <!--<param name="custom_ sequence_name"></param>-->
+            </generator>
+        </id>
+        <property name="email" column="s_email"/>
+        <property name="marks" column="s_marks"/>
+        <property name="name" column="s_name"/>
+
+    </class>
+
+
+</hibernate-mapping>
